@@ -109,8 +109,8 @@ main()
     matf32_init(&Qv, 1, 1, Qvdata);
     matf32_init(&xhat, 2, 1, xhatdata);
     matf32_init(&P, 2, 2, Pdata);
-    matf32_init(&inputs, 1, 1, &inputs_data);
-    matf32_init(&measurements, 1, 1, &measurements_data);
+    matf32_init(&inputs, 1, 1, inputs_data);
+    matf32_init(&measurements, 1, 1, measurements_data);
 
     ss(&A, &B, &C, &D, 0, &sys);
     if (sys.is_continuous)
