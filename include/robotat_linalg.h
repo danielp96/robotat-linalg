@@ -22,6 +22,8 @@
  *      @author: Daniel Martensson
  *  Modified on: 1 aug. 2021
  *           By: Miguel Zea (mezea@uvg.edu.gt)
+ *  Modified on: 20 may 2022
+ *           By: Daniel Pineda (bar18714@uv.edu.gt)        
  */
 
 #ifndef ROBOTAT_LINALG_H_
@@ -495,6 +497,101 @@ matf32_arr_mul(const matf32_t** const p_matarray, uint16_t length, matf32_t* p_d
 
 
 // ====================================================================================================
+// Matrix datatype-based solvers
+// ====================================================================================================
+
+/*
+ * @brief   Solves a system a Lx=b system through forward substitution. L must be a lower triangular matrix,
+ * the length of b and x must be the same as L amount of rows.
+ *
+ * @param[in]       p_l    Points to lower triangular matrix.
+ * @param[in]       p_b    Points to b vector.
+ * @param[in,out]   p_x    Points to otput x vector.
+ *
+ * @return  Execution status
+ *              MATH_SUCCESS :          Operation successful.
+ *              MATH_SIZE_MISMATCH :    Matrix size check failed.
+ */
+err_status_t
+matf32_forward_substitution(const matf32_t* const p_l, float* const p_b, float* p_x);
+
+
+/*
+ * @brief   Solves a system a Lx=b system through backward substitution. U must be a lower triangular matrix,
+ * the length of b and x must be the same as U amount of rows.
+ *
+ * @param[in]       p_u    Points to lower triangular matrix.
+ * @param[in]       p_b    Points to b vector.
+ * @param[in,out]   p_x    Points to otput x vector.
+ *
+ * @return  Execution status
+ *              MATH_SUCCESS :          Operation successful.
+ *              MATH_SIZE_MISMATCH :    Matrix size check failed.
+ */
+err_status_t
+matf32_backward_substitution(const matf32_t* const p_u, float* const p_b, float* p_x);
+
+
+// ====================================================================================================
+// Matrix datatype-based checks
+// ====================================================================================================
+
+
+/**
+ * @brief Checks if matrix is square
+ *
+ * @param[in]   p_mat Points to the matrix to test.
+ *
+ * @return  Execution status
+ *              true  :     Operation successful.
+ *              false :     Matrix is not square.
+ */
+inline bool
+matf32_check_square_matrix(const matf32_t* const p_mat)
+{
+    return (p_mat->num_cols == p_mat->num_rows);
+}
+
+/**
+ * @brief Checks if matrix is upper triangular
+ *
+ * @param[in]   p_mat Points to the matrix to test.
+ *
+ * @return  Execution status
+ *              true  :     Operation successful.
+ *              false :     Matrix is not upper triangular.
+ */
+bool
+matf32_check_triangular_upper(const matf32_t* const p_mat);
+
+/**
+ * @brief Checks if matrix is lower triangular
+ *
+ * @param[in]   p_mat Points to the matrix to test.
+ *
+ * @return  Execution status
+ *              true  :     Operation successful.
+ *              false :     Matrix is not lower triangular.
+ */
+bool
+matf32_check_triangular_lower(const matf32_t* const p_mat);
+
+
+/**
+ * @brief Checks if two matrices are equal
+ *
+ * @param[in]   p_mat_a Points to first matrix to compare.
+ * @param[in]   p_mat_b Points to second matrix to compare.
+ *
+ * @return  Execution status
+ *              true  :     Matrices are equal.
+ *              false :     Matrices are not equal.
+ */
+bool
+matf32_is_equal(const matf32_t* const p_mat_a, const matf32_t* const p_mat_b);
+
+
+// ====================================================================================================
 // Linear algebra routines that do not depend on the matrix datatype
 // ====================================================================================================
 /**
@@ -655,6 +752,18 @@ mean(float* p_src, uint16_t length);
  */
 float
 std(float* p_src, uint16_t length);
+
+
+/**
+ * @brief   Compares two arrays.
+ *
+ * @param[in]   p_a   Points to first array.
+ * @param[in]   p_b   Points to second array.
+ *
+ * @return  If arrays values are equal.
+ */
+bool
+is_equal(float* p_a, float* p_b, uint16_t length);
 
 
 //// ====================================================================================================

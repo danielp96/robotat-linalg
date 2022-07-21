@@ -129,6 +129,19 @@ Functions</h2></td></tr>
 <tr class="memitem:af42a5bef501e3a8e6cb534e8e1ee9905"><td class="memItemLeft" align="right" valign="top"><a class="el" href="robotat__linalg_8h.html#a494f2de0f45bd38d26dd3211000d65dd">err_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="robotat__linalg_8c.html#af42a5bef501e3a8e6cb534e8e1ee9905">matf32_arr_mul</a> (const <a class="el" href="structmatf32__t.html">matf32_t</a> **const p_matarray, uint16_t length, <a class="el" href="structmatf32__t.html">matf32_t</a> *p_dst)</td></tr>
 <tr class="memdesc:af42a5bef501e3a8e6cb534e8e1ee9905"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies an array of matrices sequentially. The number of columns of any matrix must be the same as the number of rows of the next. Output matrix cannot be the same as one of the inputs.  <a href="robotat__linalg_8c.html#af42a5bef501e3a8e6cb534e8e1ee9905">More...</a><br /></td></tr>
 <tr class="separator:af42a5bef501e3a8e6cb534e8e1ee9905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab91076ca880b9bd64ee4f295aaa33542"><td class="memItemLeft" align="right" valign="top"><a class="el" href="robotat__linalg_8h.html#a494f2de0f45bd38d26dd3211000d65dd">err_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="robotat__linalg_8c.html#ab91076ca880b9bd64ee4f295aaa33542">matf32_forward_substitution</a> (const <a class="el" href="structmatf32__t.html">matf32_t</a> *const p_l, float *const p_b, float *p_x)</td></tr>
+<tr class="separator:ab91076ca880b9bd64ee4f295aaa33542"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add3e9f92289ee2be02f05baf41f46b94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="robotat__linalg_8h.html#a494f2de0f45bd38d26dd3211000d65dd">err_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="robotat__linalg_8c.html#add3e9f92289ee2be02f05baf41f46b94">matf32_backward_substitution</a> (const <a class="el" href="structmatf32__t.html">matf32_t</a> *const p_u, float *const p_b, float *p_x)</td></tr>
+<tr class="separator:add3e9f92289ee2be02f05baf41f46b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70d0a9ace39f0717585ca79535307b21"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="robotat__linalg_8c.html#a70d0a9ace39f0717585ca79535307b21">matf32_check_triangular_upper</a> (const <a class="el" href="structmatf32__t.html">matf32_t</a> *const p_mat)</td></tr>
+<tr class="memdesc:a70d0a9ace39f0717585ca79535307b21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if matrix is upper triangular.  <a href="robotat__linalg_8c.html#a70d0a9ace39f0717585ca79535307b21">More...</a><br /></td></tr>
+<tr class="separator:a70d0a9ace39f0717585ca79535307b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4c244f9fdc9c54ea4519ccafa9c1583"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="robotat__linalg_8c.html#ab4c244f9fdc9c54ea4519ccafa9c1583">matf32_check_triangular_lower</a> (const <a class="el" href="structmatf32__t.html">matf32_t</a> *const p_mat)</td></tr>
+<tr class="memdesc:ab4c244f9fdc9c54ea4519ccafa9c1583"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if matrix is lower triangular.  <a href="robotat__linalg_8c.html#ab4c244f9fdc9c54ea4519ccafa9c1583">More...</a><br /></td></tr>
+<tr class="separator:ab4c244f9fdc9c54ea4519ccafa9c1583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f369b22ec44cb73ef21f329a94fa9f7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="robotat__linalg_8c.html#a1f369b22ec44cb73ef21f329a94fa9f7">matf32_is_equal</a> (const <a class="el" href="structmatf32__t.html">matf32_t</a> *const p_mat_a, const <a class="el" href="structmatf32__t.html">matf32_t</a> *const p_mat_b)</td></tr>
+<tr class="memdesc:a1f369b22ec44cb73ef21f329a94fa9f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if two matrices are equal.  <a href="robotat__linalg_8c.html#a1f369b22ec44cb73ef21f329a94fa9f7">More...</a><br /></td></tr>
+<tr class="separator:a1f369b22ec44cb73ef21f329a94fa9f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6888e9c98e6e0a76e3e6b88ac6d47055"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="robotat__linalg_8c.html#a6888e9c98e6e0a76e3e6b88ac6d47055">dot</a> (float *p_srca, float *p_srcb, uint16_t length)</td></tr>
 <tr class="memdesc:a6888e9c98e6e0a76e3e6b88ac6d47055"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the dot product of two vectors, pointed by p_srca and p_srcb, of the same size.  <a href="robotat__linalg_8c.html#a6888e9c98e6e0a76e3e6b88ac6d47055">More...</a><br /></td></tr>
 <tr class="separator:a6888e9c98e6e0a76e3e6b88ac6d47055"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,6 +178,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ae32876ba7456ed87a8572bc5cb7a2160"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="robotat__linalg_8c.html#ae32876ba7456ed87a8572bc5cb7a2160">std</a> (float *p_src, uint16_t length)</td></tr>
 <tr class="memdesc:ae32876ba7456ed87a8572bc5cb7a2160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the standard deviation of a given array.  <a href="robotat__linalg_8c.html#ae32876ba7456ed87a8572bc5cb7a2160">More...</a><br /></td></tr>
 <tr class="separator:ae32876ba7456ed87a8572bc5cb7a2160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad12c0388c3c2033ea6bcad73bde48466"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="robotat__linalg_8c.html#ad12c0388c3c2033ea6bcad73bde48466">is_equal</a> (float *p_a, float *p_b, uint16_t length)</td></tr>
+<tr class="memdesc:ad12c0388c3c2033ea6bcad73bde48466"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two arrays.  <a href="robotat__linalg_8c.html#ad12c0388c3c2033ea6bcad73bde48466">More...</a><br /></td></tr>
+<tr class="separator:ad12c0388c3c2033ea6bcad73bde48466"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a36fca6357b82279b810982242b0b9dd2"></a>
@@ -359,6 +375,50 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ad12c0388c3c2033ea6bcad73bde48466"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad12c0388c3c2033ea6bcad73bde48466">&#9670;&nbsp;</a></span>is_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool is_equal </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>p_a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>p_b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compares two arrays. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_a</td><td>Points to first array. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_b</td><td>Points to second array.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If arrays values are equal. </dd></dl>
+
+</div>
+</div>
 <a id="a4b761952444df5768ec1fac0e7a42bcf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4b761952444df5768ec1fac0e7a42bcf">&#9670;&nbsp;</a></span>matf32_add()</h2>
 
@@ -539,6 +599,94 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="add3e9f92289ee2be02f05baf41f46b94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add3e9f92289ee2be02f05baf41f46b94">&#9670;&nbsp;</a></span>matf32_backward_substitution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="robotat__linalg_8h.html#a494f2de0f45bd38d26dd3211000d65dd">err_status_t</a> matf32_backward_substitution </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmatf32__t.html">matf32_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *const&#160;</td>
+          <td class="paramname"><em>p_b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>p_x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab4c244f9fdc9c54ea4519ccafa9c1583"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4c244f9fdc9c54ea4519ccafa9c1583">&#9670;&nbsp;</a></span>matf32_check_triangular_lower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool matf32_check_triangular_lower </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmatf32__t.html">matf32_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if matrix is lower triangular. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_mat</td><td>Points to the matrix to test.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Execution status true : Operation successful. false : Matrix is not lower triangular. </dd></dl>
+
+</div>
+</div>
+<a id="a70d0a9ace39f0717585ca79535307b21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70d0a9ace39f0717585ca79535307b21">&#9670;&nbsp;</a></span>matf32_check_triangular_upper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool matf32_check_triangular_upper </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmatf32__t.html">matf32_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if matrix is upper triangular. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_mat</td><td>Points to the matrix to test.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Execution status true : Operation successful. false : Matrix is not upper triangular. </dd></dl>
+
+</div>
+</div>
 <a id="a5ac2b407a5aecd5e5a7b472201651d29"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ac2b407a5aecd5e5a7b472201651d29">&#9670;&nbsp;</a></span>matf32_diag()</h2>
 
@@ -601,6 +749,40 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
+
+</div>
+</div>
+<a id="ab91076ca880b9bd64ee4f295aaa33542"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab91076ca880b9bd64ee4f295aaa33542">&#9670;&nbsp;</a></span>matf32_forward_substitution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="robotat__linalg_8h.html#a494f2de0f45bd38d26dd3211000d65dd">err_status_t</a> matf32_forward_substitution </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmatf32__t.html">matf32_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *const&#160;</td>
+          <td class="paramname"><em>p_b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>p_x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -692,6 +874,44 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Execution status MATH_SUCCESS : Operation successful. MATH_SIZE_MISMATCH : Matrix size check failed. MATH_SINGULAR : Matrix is singular. </dd></dl>
+
+</div>
+</div>
+<a id="a1f369b22ec44cb73ef21f329a94fa9f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f369b22ec44cb73ef21f329a94fa9f7">&#9670;&nbsp;</a></span>matf32_is_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool matf32_is_equal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmatf32__t.html">matf32_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_mat_a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmatf32__t.html">matf32_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_mat_b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if two matrices are equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_mat_a</td><td>Points to first matrix to compare. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_mat_b</td><td>Points to second matrix to compare.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Execution status true : Matrices are equal. false : Matrices are not equal. </dd></dl>
 
 </div>
 </div>

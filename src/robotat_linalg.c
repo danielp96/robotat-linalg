@@ -483,6 +483,142 @@ matf32_arr_mul(const matf32_t** const p_matarray, uint16_t length, matf32_t* p_d
 	return MATH_SUCCESS;
 }
 
+// ====================================================================================================
+// Matrix datatype-based solvers
+// ====================================================================================================
+
+err_status_t
+matf32_forward_substitution(const matf32_t* const p_l, float* const p_b, float* p_x)
+{
+#ifdef MATH_MATRIX_CHECK
+	if (!matf32_check_triangular_lower(p_l))
+	{
+		return MATH_ARGUMENT_ERROR;
+	}
+#endif
+
+	float* p_data_src = p_l->p_data;
+
+	float lx = 0; // sum accumulator
+
+	for (uint16_t i = 0; i < p_l->num_rows; ++i) 
+	{
+		// reset lx
+		lx = 0;
+
+		// calculate sum x_i * l_(i,j)
+		for (uint16_t j = 0; j < i; ++j)
+		{
+			lx += p_x[j]*p_data_src[i*p_l->num_rows + j];
+		}
+
+		// calculate x_i
+		p_x[i] = (p_b[i] - lx)/p_data_src[i*p_l->num_rows + i];
+	}
+
+	return MATH_SUCCESS;
+}
+
+
+err_status_t
+matf32_backward_substitution(const matf32_t* const p_u, float* const p_b, float* p_x)
+{
+#ifdef MATH_MATRIX_CHECK
+	if (!matf32_check_triangular_upper(p_u))
+	{
+		return MATH_ARGUMENT_ERROR;
+	}
+#endif
+
+	float* p_data_src = p_u->p_data;
+
+	float ux = 0; // sum accumulator
+
+	for (int16_t i = p_u->num_rows-1; i >= 0; --i) 
+	{
+		// reset ux
+		ux = 0;
+		// calculate sum x_i * u_(i,j)
+		for (uint16_t j = p_u->num_cols-1; j>i; --j)
+		{
+			ux += p_x[j]*p_data_src[i*p_u->num_rows + j];
+		}
+
+		// calculate x_i
+		p_x[i] = (p_b[i] - ux)/p_data_src[i*p_u->num_rows + i];
+	}
+	return MATH_SUCCESS;
+}
+
+
+// ====================================================================================================
+// Matrix datatype-based checks
+// ====================================================================================================
+
+
+bool
+matf32_check_triangular_upper(const matf32_t* const p_mat)
+{
+#ifdef MATH_MATRIX_CHECK
+	if (p_mat->num_rows != p_mat->num_cols)
+	{
+		return false;
+	}
+#endif
+
+	float* p_data_src = p_mat->p_data;
+
+	for (uint16_t i = 1; i < p_mat->num_rows; ++i)
+	{
+		for (uint16_t j = 0; j < i; ++j)
+		{
+			if (0 != p_data_src[i*p_mat->num_rows + j])
+			{
+				return false;
+			}
+		}
+	}
+
+	return true;
+}
+
+bool
+matf32_check_triangular_lower(const matf32_t* const p_mat)
+{
+#ifdef MATH_MATRIX_CHECK
+	if (p_mat->num_rows != p_mat->num_cols)
+	{
+		return false;
+	}
+#endif
+
+	float* p_data_src = p_mat->p_data;
+
+	for (uint16_t i = 0; i < p_mat->num_rows-1; ++i)
+	{
+		for (uint16_t j = p_mat->num_cols-1; j > i; --j)
+		{
+			if (0 != p_data_src[i*p_mat->num_rows + j])
+			{
+				return false;
+			}
+		}
+	}
+
+	return true;
+}
+
+bool
+matf32_is_equal(const matf32_t* const p_mat_a, const matf32_t* const p_mat_b)
+{
+#ifdef MATH_MATRIX_CHECK
+    if ((p_mat_a->num_rows != p_mat_b->num_rows) || (p_mat_a->num_cols != p_mat_b->num_cols))
+    {
+        return false;
+    }
+#endif
+    return is_equal(p_mat_a->p_data, p_mat_b->p_data, p_mat_a->num_rows * p_mat_a->num_cols);
+}
 
 // ====================================================================================================
 // Linear algebra routines that do not depend on the matrix datatype
@@ -619,4 +755,18 @@ std(float* p_src, uint16_t length)
 	for (uint16_t i = 0; i < length; i++)
 		sigma += (p_src[i] - mu) * (p_src[i] - mu);
 	return sqrtf(sigma / ((float)length));
+}
+
+bool
+is_equal(float* p_a, float* p_b, uint16_t length)
+{
+    for (uint16_t i = 0; i < length; ++i)
+    {
+        if (p_a[i] != p_b[i])
+        {
+            return false;
+        }
+    }
+
+    return true;
 }
