@@ -7,7 +7,7 @@ MATF32_SRC = ./matf32
 CC = gcc
 
 
-all: matf32 linsolve
+all: matf32 linsolve control
 
 matf32:
 	$(MAKE) -C matf32
@@ -16,7 +16,7 @@ linsolve:
 	$(CC) -c linsolve.c -I$(INCLUDE)
 
 control:
-	$(CC) -c control.c -I$(INCLUDE)
+	$(CC) -c robotat_control.c -I$(INCLUDE)
 
 
 clean:
