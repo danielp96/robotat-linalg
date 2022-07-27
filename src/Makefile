@@ -1,0 +1,27 @@
+
+
+INCLUDE = ../include
+
+MATF32_SRC = ./matf32
+
+CC = gcc
+
+
+all: matf32 linsolve
+
+matf32:
+	$(MAKE) -C matf32
+
+linsolve:
+	$(CC) -c linsolve.c -I$(INCLUDE)
+
+control:
+	$(CC) -c control.c -I$(INCLUDE)
+
+
+clean:
+	$(MAKE) clean -C matf32
+	rm -f *.o
+
+
+.PHONY: matf32 linsolve clean
