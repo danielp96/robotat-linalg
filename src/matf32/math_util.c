@@ -180,6 +180,12 @@ is_equal(float* p_a, float* p_b, uint16_t length)
 {
     for (uint16_t i = 0; i < length; ++i)
     {
+        // skip if both are NaN
+        if (isnan(p_a[i]) && isnan(p_b[i]))
+        {
+            continue;
+        }
+
         if (p_a[i] != p_b[i])
         {
             return false;
